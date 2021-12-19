@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
+      integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <title>Chart.js-Practice</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myChart" height="400" width="400"></canvas>
+    </div>
+
+    <script>
+      let myChart = document.getElementById("myChart");
+
+      DATA_COUNT = 6;
+
+      function generateData() {
+        return Utils.numbers({
+          count: DATA_COUNT,
+          min: 0,
+          max: 100,
+        });
+      }
+
+      let mySkillsChart = new Chart(myChart, {
+        type: "radar",
+        data: {
+          labels: [
+            "HTML",
+            "JavaScript",
+            "MongoDB",
+            "React",
+            "Node.js",
+            "CSS/SCSS",
+            "Adobe Creative Cloud",
+          ],
+          datasets: [
+            {
+              label: "Skill Proficency",
+              data: [95, 80, 70, 90, 80, 85, 60],
+              // data: generateData(),
+              // fill: true,
+              // backgroundColor: "rgba(255, 99, 132, 0.2)",
+              // borderColor: "rgb(255, 99, 132)",
+              // pointBackgroundColor: "rgb(255, 99, 132)",
+              // pointBorderColor: "#fff",
+              // pointHoverBackgroundColor: "#fff",
+              // pointHoverBorderColor: "rgb(255, 99, 132)",
+              // data: [100, 100, 100, 100, 100, 100],
+            },
+          ],
+        },
+        options: {
+          responsive: false,
+          // maintainAspectRatio: true,
+          scale: {
+            display: true,
+            min: 0,
+            max: 100,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
